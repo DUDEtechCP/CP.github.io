@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CP Command Center - Chandra Shekhar Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="glow-bg"></div>
+
+  <div class="dashboard-container">
+
+    <!-- Profile Card with Navigation Launchers -->
+    <section class="glass-panel profile-card">
+      <div class="profile-left">
+        <div class="avatar-floating-container">
+          <img 
+            src="1788203315211-removebg-preview.png" 
+            alt="Chandra Shekhar Patel" 
+            class="whatsapp-dp floating-photo"
+          />
+          <span class="status-indicator" title="Active Focus"></span>
+        </div>
+
+        <div class="profile-meta">
+          <div class="name-badge-group">
+            <h2>Chandra Shekhar Patel</h2>
+            <span class="role-pill">12th Passout • Student</span>
+          </div>
+
+          <p class="profile-bio">
+            Medical aspirant tracking daily targets, consistent study hours, and academic growth.
+          </p>
+
+          <!-- Action Launcher Navigation -->
+          <div class="launcher-nav">
+            <button class="nav-btn about-btn" onclick="openModal('about-modal')">
+              <i data-lucide="user"></i>
+              <span>About Me</span>
+            </button>
+            <button class="nav-btn tracker-btn" onclick="openModal('tracker-modal')">
+              <i data-lucide="timer"></i>
+              <span>Study Tracker</span>
+            </button>
+            <button class="nav-btn tasks-btn" onclick="openModal('tasks-modal')">
+              <i data-lucide="check-circle-2"></i>
+              <span>Schedule & Targets</span>
+            </button>
+            <button class="nav-btn diary-btn" onclick="openModal('diary-modal')">
+              <i data-lucide="book-marked"></i>
+              <span>Daily Log</span>
+            </button>
+            <button class="nav-btn mtg-btn" onclick="openModal('mtg-modal')">
+              <i data-lucide="layers"></i>
+              <span>MTG Planner</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Header / Quick Glance Stats -->
+    <header class="glass-panel header-panel">
+      <div>
+        <div class="badge">
+          <span class="pulse-dot"></span>
+          <span>SYSTEM ACTIVE</span>
+        </div>
+        <h1>CP Command Center</h1>
+        <p id="current-date">Loading date...</p>
+      </div>
+      <div class="quick-stats">
+        <div class="stat-pill" onclick="openModal('tasks-modal')" style="cursor: pointer;" title="Click to view targets">
+          <span class="stat-label">Tasks Done</span>
+          <span class="stat-value" id="stats-tasks">0/0</span>
+        </div>
+        <div class="stat-pill" onclick="openModal('tracker-modal')" style="cursor: pointer;" title="Click to view timer">
+          <span class="stat-label">Today's Focus</span>
+          <span class="stat-value" id="stats-focus">0h 0m</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Social Media Dock Footer -->
+    <footer class="glass-panel footer-socials">
+      <div class="social-links-grid">
+        <!-- Instagram -->
+        <a href="https://instagram.com/dude_cp" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" data-tooltip="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <!-- Twitter / X -->
+        <a href="https://x.com/CP3280071756369" target="_blank" rel="noopener noreferrer" class="social-icon-btn twitter" data-tooltip="Twitter (X)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" data-tooltip="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/cpzenz" target="_blank" rel="noopener noreferrer" class="social-icon-btn telegram" data-tooltip="Telegram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" data-tooltip="YouTube">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+            <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:Chanduofficial06@gmail.com" class="social-icon-btn mail" data-tooltip="Email Me">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== POPUP MODALS ==================== -->
+
+  <!-- Modal 1: About Me -->
+  <div id="about-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'about-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap cyan"><i data-lucide="sparkles"></i></div>
+          <h2>About Chandra Shekhar Patel</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('about-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll">
+        <div class="about-section">
+          <h3><i data-lucide="book-open"></i> Academic Background</h3>
+          <p>12th passout student focused on competitive medical preparation and academic consistency.</p>
+        </div>
+        <div class="about-section">
+          <h3><i data-lucide="target"></i> Goals & Daily Routine</h3>
+          <p>Maintaining strict daily schedules, maximizing revision velocity, and eliminating distractions.</p>
+        </div>
+        <div class="about-section">
+          <h3><i data-lucide="cpu"></i> Disciplines</h3>
+          <div class="profile-tags">
+            <span class="tag"><i data-lucide="check"></i> Medical Prep</span>
+            <span class="tag"><i data-lucide="check"></i> Deep Study Hours</span>
+            <span class="tag"><i data-lucide="check"></i> Target Consistency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Study Tracker -->
+  <div id="tracker-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'tracker-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap cyan"><i data-lucide="timer"></i></div>
+          <h2>Study Tracker</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('tracker-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="timer-display-box">
+        <span id="timer-display">00:00:00</span>
+      </div>
+      <div class="timer-actions">
+        <button id="btn-timer-toggle" class="btn btn-primary" onclick="toggleTimer()">
+          <i data-lucide="play" id="timer-btn-icon"></i>
+          <span id="timer-btn-text">Start Focus</span>
+        </button>
+        <button class="btn btn-secondary" onclick="resetTimer()">
+          <i data-lucide="rotate-ccw"></i>
+        </button>
+      </div>
+      <p class="study-meta">Time runs continuously in the background even if you close this window.</p>
+    </div>
+  </div>
+
+  <!-- Modal 3: Schedule & Targets -->
+  <div id="tasks-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'tasks-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap indigo"><i data-lucide="check-circle-2"></i></div>
+          <h2>Today's Schedule & Targets</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('tasks-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <form class="task-form" onsubmit="handleAddTask(event)">
+        <input type="text" id="task-title" placeholder="Target / Subject chapter..." required />
+        <input type="time" id="task-time" title="Target completion time" />
+        <button type="submit" class="btn btn-accent"><i data-lucide="plus"></i> Add</button>
+      </form>
+      <div class="progress-container">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="task-progress-fill"></div>
+        </div>
+      </div>
+      <ul class="task-list" id="task-list"></ul>
+    </div>
+  </div>
+
+  <!-- Modal 4: Daily Log & Reflection -->
+  <div id="diary-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'diary-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap violet"><i data-lucide="book-marked"></i></div>
+          <h2>Daily Log & Reflections</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('diary-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="diary-body">
+        <label for="diary-mood">Day Sentiment</label>
+        <div class="mood-selector">
+          <button type="button" class="mood-btn active" onclick="setMood('🔥 Productive')">🔥 Productive</button>
+          <button type="button" class="mood-btn" onclick="setMood('⚡ Energetic')">⚡ Energetic</button>
+          <button type="button" class="mood-btn" onclick="setMood('🌱 Consistent')">🌱 Consistent</button>
+          <button type="button" class="mood-btn" onclick="setMood('😴 Exhausted')">😴 Exhausted</button>
+        </div>
+        <label for="diary-text" style="margin-top: 1rem;">End-of-Day Review</label>
+        <textarea id="diary-text" placeholder="Write topics covered, mock scores, or key learnings today..." rows="6"></textarea>
+      </div>
+      <button class="btn btn-primary full-width" onclick="saveDiary()">
+        <i data-lucide="save"></i> Save Reflection
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal 5: MTG Syllabus & Target Planner (Dual Section) -->
+  <div id="mtg-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'mtg-modal')">
+    <div class="glass-panel modal-card mtg-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap emerald"><i data-lucide="layers"></i></div>
+          <div>
+            <h2>MTG Preparation Planner</h2>
+            <p class="sub-text" id="mtg-overall-text">0/50 Completed (0%)</p>
+          </div>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('mtg-modal')"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="mtg-dual-grid">
+        <!-- Physics Section -->
+        <div class="mtg-subject-box">
+          <div class="mtg-subject-header">
+            <div class="subject-title">
+              <span class="mtg-tag physics">Physics</span>
+              <span class="sub-text" id="mtg-phy-count">0/28 Done</span>
+            </div>
+            <div class="progress-bar-track small">
+              <div class="progress-bar-fill phy-bar" id="phy-progress-fill"></div>
+            </div>
+          </div>
+          <div class="modal-content-scroll mtg-column-list" id="mtg-physics-list"></div>
+        </div>
+
+        <!-- Chemistry Section -->
+        <div class="mtg-subject-box">
+          <div class="mtg-subject-header">
+            <div class="subject-title">
+              <span class="mtg-tag chemistry">Chemistry</span>
+              <span class="sub-text" id="mtg-chem-count">0/22 Done</span>
+            </div>
+            <div class="progress-bar-track small">
+              <div class="progress-bar-fill chem-bar" id="chem-progress-fill"></div>
+            </div>
+          </div>
+          <div class="modal-content-scroll mtg-column-list" id="mtg-chemistry-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
