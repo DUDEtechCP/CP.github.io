@@ -20,8 +20,6 @@ function formatSeconds(sec) {
 
 function updateTimerDisplay() {
   document.getElementById('timer-display').innerText = formatSeconds(totalSeconds);
-  const hours = (totalSeconds / 3600).toFixed(1);
-  document.getElementById('stats-focus').innerText = `${hours}h`;
 }
 
 function toggleTimer() {
@@ -128,8 +126,6 @@ function renderTasks() {
 
   const pct = tasks.length === 0 ? 0 : Math.round((doneCount / tasks.length) * 100);
   document.getElementById('task-progress-fill').style.width = `${pct}%`;
-  document.getElementById('stats-tasks').innerText = `${doneCount}/${tasks.length}`;
-
   lucide.createIcons();
 }
 
@@ -178,6 +174,11 @@ function closeModal(modalId) {
   if (modal) {
     modal.classList.remove('open');
   }
+}
+
+function switchModal(closeId, openId) {
+  closeModal(closeId);
+  setTimeout(() => openModal(openId), 150); // slight delay for smooth transition
 }
 
 function handleBackdropClick(e, modalId) {
@@ -290,19 +291,16 @@ function renderMTG() {
     }
   });
 
-  // Physics Stats & Progress Bar
   const phyTotal = 28;
   const phyPct = Math.round((phyDone / phyTotal) * 100);
   document.getElementById('mtg-phy-count').innerText = `${phyDone}/${phyTotal} (${phyPct}%)`;
   document.getElementById('phy-progress-fill').style.width = `${phyPct}%`;
 
-  // Chemistry Stats & Progress Bar
   const chemTotal = 22;
   const chemPct = Math.round((chemDone / chemTotal) * 100);
   document.getElementById('mtg-chem-count').innerText = `${chemDone}/${chemTotal} (${chemPct}%)`;
   document.getElementById('chem-progress-fill').style.width = `${chemPct}%`;
 
-  // Overall Total
   const totalDone = phyDone + chemDone;
   const overallPct = Math.round((totalDone / 50) * 100);
   document.getElementById('mtg-overall-text').innerText = `${totalDone}/50 Completed (${overallPct}%)`;
@@ -318,5 +316,4 @@ function toggleMTG(id) {
   renderMTG();
 }
 
-// Initial Boot of MTG
 renderMTG();

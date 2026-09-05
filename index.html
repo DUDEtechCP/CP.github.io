@@ -15,7 +15,7 @@
 
   <div class="dashboard-container">
 
-    <!-- Profile Card with Navigation Launchers -->
+    <!-- Profile Card with About Me Launcher -->
     <section class="glass-panel profile-card">
       <div class="profile-left">
         <div class="avatar-floating-container">
@@ -34,39 +34,23 @@
           </div>
 
           <p class="profile-bio">
-            Medical aspirant tracking daily targets, consistent study hours, and academic growth.
+            Just A Little Bit Curious About Things Happening Around me And Trying To Find New Things To Explore
           </p>
 
-          <!-- Action Launcher Navigation -->
+          <!-- Action Launcher Navigation (Only About Me) -->
           <div class="launcher-nav">
             <button class="nav-btn about-btn" onclick="openModal('about-modal')">
               <i data-lucide="user"></i>
               <span>About Me</span>
-            </button>
-            <button class="nav-btn tracker-btn" onclick="openModal('tracker-modal')">
-              <i data-lucide="timer"></i>
-              <span>Study Tracker</span>
-            </button>
-            <button class="nav-btn tasks-btn" onclick="openModal('tasks-modal')">
-              <i data-lucide="check-circle-2"></i>
-              <span>Schedule & Targets</span>
-            </button>
-            <button class="nav-btn diary-btn" onclick="openModal('diary-modal')">
-              <i data-lucide="book-marked"></i>
-              <span>Daily Log</span>
-            </button>
-            <button class="nav-btn mtg-btn" onclick="openModal('mtg-modal')">
-              <i data-lucide="layers"></i>
-              <span>MTG Planner</span>
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Header / Quick Glance Stats -->
+    <!-- Header / CP Command Center Controls -->
     <header class="glass-panel header-panel">
-      <div>
+      <div class="header-left">
         <div class="badge">
           <span class="pulse-dot"></span>
           <span>SYSTEM ACTIVE</span>
@@ -74,22 +58,38 @@
         <h1>CP Command Center</h1>
         <p id="current-date">Loading date...</p>
       </div>
-      <div class="quick-stats">
-        <div class="stat-pill" onclick="openModal('tasks-modal')" style="cursor: pointer;" title="Click to view targets">
-          <span class="stat-label">Tasks Done</span>
-          <span class="stat-value" id="stats-tasks">0/0</span>
-        </div>
-        <div class="stat-pill" onclick="openModal('tracker-modal')" style="cursor: pointer;" title="Click to view timer">
-          <span class="stat-label">Today's Focus</span>
-          <span class="stat-value" id="stats-focus">0h 0m</span>
-        </div>
+      
+      <!-- Command Center Action Buttons -->
+      <div class="header-actions">
+        <!-- SM Master Button -->
+        <button class="nav-btn sm-btn" onclick="openModal('sm-modal')">
+          <i data-lucide="grid"></i>
+          <span>SM</span>
+        </button>
+        <!-- Glimpses Button -->
+        <button class="nav-btn glimpses-btn" onclick="openModal('glimpses-modal')">
+          <i data-lucide="image"></i>
+          <span>Glimpses</span>
+        </button>
+        <!-- Custom Editable Buttons (Extra 3) -->
+        <button class="nav-btn extra-btn" onclick="alert('Custom feature 1 ready to be linked!')">
+          <i data-lucide="plus"></i>
+          <span>Extra 1</span>
+        </button>
+        <button class="nav-btn extra-btn" onclick="alert('Custom feature 2 ready to be linked!')">
+          <i data-lucide="plus"></i>
+          <span>Extra 2</span>
+        </button>
+        <button class="nav-btn extra-btn" onclick="alert('Custom feature 3 ready to be linked!')">
+          <i data-lucide="plus"></i>
+          <span>Extra 3</span>
+        </button>
       </div>
     </header>
 
     <!-- Social Media Dock Footer -->
     <footer class="glass-panel footer-socials">
       <div class="social-links-grid">
-        <!-- Instagram -->
         <a href="https://instagram.com/dude_cp" target="_blank" rel="noopener noreferrer" class="social-icon-btn instagram" data-tooltip="Instagram">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -97,37 +97,27 @@
             <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
           </svg>
         </a>
-
-        <!-- Twitter / X -->
         <a href="https://x.com/CP3280071756369" target="_blank" rel="noopener noreferrer" class="social-icon-btn twitter" data-tooltip="Twitter (X)">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
         </a>
-
-        <!-- WhatsApp -->
         <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="social-icon-btn whatsapp" data-tooltip="WhatsApp">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
           </svg>
         </a>
-
-        <!-- Telegram -->
         <a href="https://t.me/cpzenz" target="_blank" rel="noopener noreferrer" class="social-icon-btn telegram" data-tooltip="Telegram">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
           </svg>
         </a>
-
-        <!-- YouTube -->
         <a href="https://youtube.com/@your_channel" target="_blank" rel="noopener noreferrer" class="social-icon-btn youtube" data-tooltip="YouTube">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
             <polygon points="10 15 15 12 10 9 10 15" fill="currentColor"></polygon>
           </svg>
         </a>
-
-        <!-- Email -->
         <a href="mailto:Chanduofficial06@gmail.com" class="social-icon-btn mail" data-tooltip="Email Me">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect width="20" height="16" x="2" y="4" rx="2"></rect>
@@ -161,18 +151,102 @@
           <p>Maintaining strict daily schedules, maximizing revision velocity, and eliminating distractions.</p>
         </div>
         <div class="about-section">
-          <h3><i data-lucide="cpu"></i> Disciplines</h3>
+          <h3><i data-lucide="compass"></i> Hobbies</h3>
           <div class="profile-tags">
-            <span class="tag"><i data-lucide="check"></i> Medical Prep</span>
-            <span class="tag"><i data-lucide="check"></i> Deep Study Hours</span>
-            <span class="tag"><i data-lucide="check"></i> Target Consistency</span>
+            <span class="tag"><i data-lucide="headphones"></i> Music</span>
+            <span class="tag"><i data-lucide="book"></i> Reading</span>
+            <span class="tag"><i data-lucide="camera"></i> Photography</span>
+            <span class="tag"><i data-lucide="monitor-play"></i> Tech Exploring</span>
           </div>
+        </div>
+      </div> 
+    </div> <!-- FIXED: Restored missing closing tags here -->
+  </div> <!-- FIXED: Restored missing closing tags here -->
+
+  <!-- Modal 2: System Modules (SM) Master Menu -->
+  <div id="sm-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'sm-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap indigo"><i data-lucide="grid"></i></div>
+          <h2>System Modules</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('sm-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="sm-grid">
+        <button class="sm-option-btn tracker-btn" onclick="switchModal('sm-modal', 'tracker-modal')">
+          <i data-lucide="timer"></i> <span>Study Tracker</span>
+        </button>
+        <button class="sm-option-btn tasks-btn" onclick="switchModal('sm-modal', 'tasks-modal')">
+          <i data-lucide="check-circle-2"></i> <span>Schedule & Targets</span>
+        </button>
+        <button class="sm-option-btn diary-btn" onclick="switchModal('sm-modal', 'diary-modal')">
+          <i data-lucide="book-marked"></i> <span>Daily Log</span>
+        </button>
+        <button class="sm-option-btn mtg-btn" onclick="switchModal('sm-modal', 'mtg-modal')">
+          <i data-lucide="layers"></i> <span>MTG Planner</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Glimpses Gallery -->
+  <div id="glimpses-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'glimpses-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="icon-wrap cyan"><i data-lucide="image"></i></div>
+          <h2>Glimpses</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('glimpses-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll">
+        <div class="glimpses-gallery-placeholder">
+          <img src="1.webp" alt="Glimpse 1" class="glimpse-img" />
+          <img src="2.webp" alt="Glimpse 2" class="glimpse-img" />
+          <img src="3.jpg" alt="Glimpse 3" class="glimpse-img" />
+          <img src="4.jpg" alt="Glimpse 4" class="glimpse-img" />
+          <img src="5.jpg" alt="Glimpse 5" class="glimpse-img" />
+          <img src="6.jpg" alt="Glimpse 6" class="glimpse-img" />
+          <img src="7.jpg" alt="Glimpse 7" class="glimpse-img" />
+          <img src="8.jpg" alt="Glimpse 8" class="glimpse-img" />
+          <img src="9.webp" alt="Glimpse 9" class="glimpse-img" />
+          <img src="10.webp" alt="Glimpse 10" class="glimpse-img" />
+          <img src="11.jpg" alt="Glimpse 11" class="glimpse-img" />
+          <img src="12.webp" alt="Glimpse 12" class="glimpse-img" />
+          <img src="13.jpg" alt="Glimpse 13" class="glimpse-img" />
+          <img src="14.webp" alt="Glimpse 14" class="glimpse-img" />
+          <img src="15.jpg" alt="Glimpse 15" class="glimpse-img" />
+          <img src="16.webp" alt="Glimpse 16" class="glimpse-img" />
+          <img src="17.webp" alt="Glimpse 17" class="glimpse-img" />
+          <img src="18.jpg" alt="Glimpse 18" class="glimpse-img" />
+          <img src="19.webp" alt="Glimpse 19" class="glimpse-img" />
+          <img src="20.jpg" alt="Glimpse 20" class="glimpse-img" />
+          <img src="21.jpg" alt="Glimpse 21" class="glimpse-img" />
+          <img src="22.webp" alt="Glimpse 22" class="glimpse-img" />
+          <img src="23.webp" alt="Glimpse 23" class="glimpse-img" />
+          <img src="24.jpg" alt="Glimpse 24" class="glimpse-img" />
+          <img src="25.webp" alt="Glimpse 25" class="glimpse-img" />
+          <img src="26.jpg" alt="Glimpse 26" class="glimpse-img" />
+          <img src="27.webp" alt="Glimpse 27" class="glimpse-img" />
+          <img src="28.webp" alt="Glimpse 28" class="glimpse-img" />
+          <img src="29.webp" alt="Glimpse 29" class="glimpse-img" />
+          <img src="30.webp" alt="Glimpse 30" class="glimpse-img" />
+          <img src="31.jpg" alt="Glimpse 31" class="glimpse-img" />
+          <img src="32.webp" alt="Glimpse 32" class="glimpse-img" />
+          <img src="33.webp" alt="Glimpse 33" class="glimpse-img" />
+          <img src="34.webp" alt="Glimpse 34" class="glimpse-img" />
+          <img src="35.jpg" alt="Glimpse 35" class="glimpse-img" />
+          <img src="36.jpg" alt="Glimpse 36" class="glimpse-img" />
+          <img src="37.webp" alt="Glimpse 37" class="glimpse-img" />
+          <img src="38.jpg" alt="Glimpse 38" class="glimpse-img" />
+          <img src="39.webp" alt="Glimpse 39" class="glimpse-img" />
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modal 2: Study Tracker -->
+  <!-- Modal 4: Study Tracker -->
   <div id="tracker-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'tracker-modal')">
     <div class="glass-panel modal-card">
       <div class="modal-header">
@@ -198,7 +272,7 @@
     </div>
   </div>
 
-  <!-- Modal 3: Schedule & Targets -->
+  <!-- Modal 5: Schedule & Targets -->
   <div id="tasks-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'tasks-modal')">
     <div class="glass-panel modal-card">
       <div class="modal-header">
@@ -222,7 +296,7 @@
     </div>
   </div>
 
-  <!-- Modal 4: Daily Log & Reflection -->
+  <!-- Modal 6: Daily Log & Reflection -->
   <div id="diary-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'diary-modal')">
     <div class="glass-panel modal-card">
       <div class="modal-header">
@@ -249,7 +323,7 @@
     </div>
   </div>
 
-  <!-- Modal 5: MTG Syllabus & Target Planner (Dual Section) -->
+  <!-- Modal 7: MTG Syllabus & Target Planner (Dual Section) -->
   <div id="mtg-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'mtg-modal')">
     <div class="glass-panel modal-card mtg-modal-card">
       <div class="modal-header">
@@ -262,9 +336,7 @@
         </div>
         <button class="btn-close-modal" onclick="closeModal('mtg-modal')"><i data-lucide="x"></i></button>
       </div>
-
       <div class="mtg-dual-grid">
-        <!-- Physics Section -->
         <div class="mtg-subject-box">
           <div class="mtg-subject-header">
             <div class="subject-title">
@@ -277,8 +349,6 @@
           </div>
           <div class="modal-content-scroll mtg-column-list" id="mtg-physics-list"></div>
         </div>
-
-        <!-- Chemistry Section -->
         <div class="mtg-subject-box">
           <div class="mtg-subject-header">
             <div class="subject-title">
