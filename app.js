@@ -317,3 +317,172 @@ function toggleMTG(id) {
 }
 
 renderMTG();
+/* ==========================================================
+   6. TEST SCHEDULE DATA (NEET ACHIEVER TARGET 2027)
+========================================================== */
+const neetTestSchedule = [
+  {
+    date: "20/09/2026", type: "PRACTICE TEST",
+    physics: "Basic Mathematics used in Physics, Vectors, Units, Dimensions And Measurement, Kinematics, Laws of Motion and Friction, Electrostatics",
+    chemistry: "Chemical Kinetics, Solutions",
+    biology: "Structural Organisation In Animals (Animal Tissue + Frog + Cockroach), Cell: The Unit of Life, Sexual Reproduction in Flowering Plants"
+  },
+  {
+    date: "27/09/2026", type: "MINOR TEST-1",
+    physics: "Basic Mathematics Used In Physics & Vectors, Unit, Dimensions and Measurement, Kinematics, Laws of Motion and Friction, Experimental Skills (Vernier calipers, Screw gauge)",
+    chemistry: "Atomic Structure, Some basic concepts of Chemistry, Equilibrium, Redox reaction",
+    biology: "Sexual Reproduction in Flowering Plants, Human Reproduction, Reproductive Health"
+  },
+  {
+    date: "04/10/2026", type: "MINOR TEST-2",
+    physics: "Work, Energy & Power, Circular Motion, Collisions & Centre of Mass, Rotational Motion, Experimental Skills (Metre Scale)",
+    chemistry: "Chemical kinetics, Solution",
+    biology: "The Living World, Biological Classification, Plant Kingdom, Animal Kingdom"
+  },
+  {
+    date: "25/10/2026", type: "MINOR TEST-3",
+    physics: "Properties of matter and Fluid Mechanics, Thermal Physics, Experimental Skills (Young's modulus, Surface tension, Viscosity, Specific heat)",
+    chemistry: "Chemical Thermodynamics, Electrochemistry, Periodic Table",
+    biology: "No specific biology topics listed for this date in schedule."
+  },
+  {
+    date: "01/11/2026", type: "MINOR TEST-4",
+    physics: "Gravitation, Oscillations (SHM), Wave Motion, Experimental Skills (Simple Pendulum, Resonance tube)",
+    chemistry: "Chemical Bonding, Molecular Structure, d & f-block elements",
+    biology: "Principles of Inheritance And Variation, Molecular Basis of Inheritance, Evolution, Morphology of Flowering Plants, Anatomy of Flowering Plants, Structural Organisation In Animals (Animal Tissue), Cockroach, Frog"
+  },
+  {
+    date: "21/11/2026", type: "SEMI MAJOR TEST-1",
+    physics: "Syllabus of Test No. 2, 3, 4 & 5 (Minor Test-1 to 4)",
+    chemistry: "Syllabus of Test No. 2, 3, 4 & 5 (Minor Test-1 to 4)",
+    biology: "Syllabus of Test No. 2, 3, 4 & 5 (Minor Test-1 to 4)"
+  },
+  {
+    date: "06/12/2026", type: "MINOR TEST-5",
+    physics: "Electrostatics, Capacitor, Current electricity, Experimental Skills (Resistivity using metre bridge, Ohm's law)",
+    chemistry: "P-block elements (group 13 to 18 elements), Coordination Compounds",
+    biology: "Human Health and Disease, Microbes In Human Welfare, Tissue Culture, Biotechnology: Principles And Processes, Biotechnology And Its Applications"
+  },
+  {
+    date: "03/01/2027", type: "MINOR TEST-6",
+    physics: "Magnetic effect of current and Magnetism, Electromagnetic Induction, Alternating current, Electromagnetic Waves, Experimental Skills (Galvanometer)",
+    chemistry: "Nomenclature, Isomerism, General Organic Chemistry, Purification and Characterisation of Organic Compounds",
+    biology: "Cell:The Unit of Life, Biomolecule with Enzyme, Cell Cycle And Cell Division, Photosynthesis in Higher Plants, Respiration in Plants, Plant Growth and Development"
+  },
+  {
+    date: "17/01/2027", type: "MINOR TEST-7",
+    physics: "Ray Optics and Optical Instruments, Wave optics, Experimental Skills (Mirrors, Lenses, Prism, Refractive index)",
+    chemistry: "Hydrocarbons, Organic Compounds Containing Halogens (Haloalkanes and Haloarenes)",
+    biology: "Organisms and Populations, Ecosystem, Biodiversity and its Conservation"
+  },
+  {
+    date: "07/02/2027", type: "MINOR TEST-8",
+    physics: "Modern Physics-I (Dual nature), Modern Physics-II (Nuclei) & Modern Physics-III (Atoms), Semiconductor and Electronics, Experimental Skills (Diodes, Zener diode, Resistors, Capacitors)",
+    chemistry: "Organic Compounds Containing Oxygen and Nitrogen, Biomolecules, Principles related to practical chemistry",
+    biology: "Breathing And Exchange Of Gases, Body Fluids And Circulation, Excretory Products And Their Elimination, Locomotion And Movement, Neural Control And Co-ordination, Chemical Co-ordination And Integration"
+  },
+  {
+    date: "14/02/2027", type: "SEMI MAJOR TEST-2",
+    physics: "Syllabus of Test No. 7, 8, 9 & 10 (Minor Test-5 to 8)",
+    chemistry: "Syllabus of Test No. 7, 8, 9 & 10 (Minor Test-5 to 8)",
+    biology: "Syllabus of Test No. 7, 8, 9 & 10 (Minor Test-5 to 8)"
+  }
+];
+
+function renderTestSchedule() {
+  const container = document.getElementById('schedule-list-container');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  
+  neetTestSchedule.forEach(test => {
+    const card = document.createElement('div');
+    card.className = 'test-card';
+    
+    card.innerHTML = `
+      <div class="test-card-header">
+        <span class="test-type-badge">${test.type}</span>
+        <span class="test-date-badge"><i data-lucide="clock" style="width: 14px; height: 14px;"></i> ${test.date}</span>
+      </div>
+      <div class="test-syllabus-content">
+        <div class="syllabus-row">
+          <strong>Physics</strong>
+          <p>${test.physics}</p>
+        </div>
+        <div class="syllabus-row">
+          <strong>Chemistry</strong>
+          <p>${test.chemistry}</p>
+        </div>
+        <div class="syllabus-row">
+          <strong>Biology</strong>
+          <p>${test.biology}</p>
+        </div>
+      </div>
+    `;
+    
+    container.appendChild(card);
+  });
+  
+  lucide.createIcons();
+}
+
+// Run render on load
+renderTestSchedule();
+/* ==========================================================
+   7. TEST MARKS & ANALYSIS TRACKER
+========================================================== */
+let testMarksData = JSON.parse(localStorage.getItem('test_marks_data') || '{}');
+
+function renderTestMarks() {
+  const container = document.getElementById('marks-list-container');
+  if (!container) return;
+  
+  container.innerHTML = '';
+
+  // Loops through the exact same schedule data used in the Test Schedule tab
+  neetTestSchedule.forEach((test, index) => {
+    const data = testMarksData[index] || { score: '', analyzed: false };
+    
+    const row = document.createElement('div');
+    // If analyzed is checked, it adds a green glow to the row
+    row.className = `mark-row ${data.analyzed ? 'analyzed-row' : ''}`;
+    
+    row.innerHTML = `
+      <div class="mark-info">
+        <span class="mark-title">${test.type}</span>
+        <span class="mark-date"><i data-lucide="calendar" style="width: 12px; height: 12px;"></i> ${test.date}</span>
+      </div>
+      <div class="mark-actions">
+        <div class="mark-input-wrap">
+          <input type="number" class="mark-input" value="${data.score}" placeholder="---" max="720" onchange="updateTestMark(${index}, this.value)" />
+          <label>/ 720</label>
+        </div>
+        <label class="analyze-check">
+          <input type="checkbox" ${data.analyzed ? 'checked' : ''} onchange="toggleAnalyze(${index}, this.checked)" />
+          Analyzed
+        </label>
+      </div>
+    `;
+    container.appendChild(row);
+  });
+  
+  lucide.createIcons();
+}
+
+function updateTestMark(index, value) {
+  if (!testMarksData[index]) testMarksData[index] = { score: '', analyzed: false };
+  testMarksData[index].score = value;
+  localStorage.setItem('test_marks_data', JSON.stringify(testMarksData));
+}
+
+function toggleAnalyze(index, isChecked) {
+  if (!testMarksData[index]) testMarksData[index] = { score: '', analyzed: false };
+  testMarksData[index].analyzed = isChecked;
+  localStorage.setItem('test_marks_data', JSON.stringify(testMarksData));
+  
+  // Re-render to trigger the green row highlight
+  renderTestMarks();
+}
+
+// Initial Boot for Marks Tracker
+renderTestMarks();

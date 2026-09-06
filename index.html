@@ -160,8 +160,8 @@
           </div>
         </div>
       </div> 
-    </div> <!-- FIXED: Restored missing closing tags here -->
-  </div> <!-- FIXED: Restored missing closing tags here -->
+    </div> 
+  </div>
 
   <!-- Modal 2: System Modules (SM) Master Menu -->
   <div id="sm-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'sm-modal')">
@@ -174,6 +174,13 @@
         <button class="btn-close-modal" onclick="closeModal('sm-modal')"><i data-lucide="x"></i></button>
       </div>
       <div class="sm-grid">
+        <button class="sm-option-btn schedule-btn" onclick="switchModal('sm-modal', 'schedule-modal')">
+          <i data-lucide="calendar"></i> <span>Test Schedule</span>
+        </button>
+        <!-- NEW TEST MARKS BUTTON -->
+        <button class="sm-option-btn marks-btn" onclick="switchModal('sm-modal', 'marks-modal')">
+          <i data-lucide="bar-chart-2"></i> <span>Test Marks</span>
+        </button>
         <button class="sm-option-btn tracker-btn" onclick="switchModal('sm-modal', 'tracker-modal')">
           <i data-lucide="timer"></i> <span>Study Tracker</span>
         </button>
@@ -190,6 +197,40 @@
     </div>
   </div>
 
+  <!-- Modal 2.5: Test Schedule Syllabus -->
+  <div id="schedule-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'schedule-modal')">
+    <div class="glass-panel modal-card" style="max-width: 700px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('schedule-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
+          <div class="icon-wrap amber"><i data-lucide="calendar"></i></div>
+          <h2>NEET Achiever Test Schedule</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('schedule-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll" id="schedule-list-container">
+        <!-- Test schedule cards will be injected here by JS -->
+      </div>
+    </div>
+  </div>
+<!-- Modal 2.6: Test Marks & Analysis -->
+  <div id="marks-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'marks-modal')">
+    <div class="glass-panel modal-card" style="max-width: 600px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('marks-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
+          <div class="icon-wrap rose"><i data-lucide="bar-chart-2"></i></div>
+          <h2>Test Marks Tracker</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('marks-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll">
+        <div id="marks-list-container" class="marks-list">
+          <!-- Marks rows injected by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Modal 3: Glimpses Gallery -->
   <div id="glimpses-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'glimpses-modal')">
     <div class="glass-panel modal-card">
@@ -202,45 +243,45 @@
       </div>
       <div class="modal-content-scroll">
         <div class="glimpses-gallery-placeholder">
-          <img src="1.webp" alt="Glimpse 1" class="glimpse-img" />
-          <img src="2.webp" alt="Glimpse 2" class="glimpse-img" />
-          <img src="3.jpg" alt="Glimpse 3" class="glimpse-img" />
-          <img src="4.jpg" alt="Glimpse 4" class="glimpse-img" />
-          <img src="5.jpg" alt="Glimpse 5" class="glimpse-img" />
-          <img src="6.jpg" alt="Glimpse 6" class="glimpse-img" />
-          <img src="7.jpg" alt="Glimpse 7" class="glimpse-img" />
-          <img src="8.jpg" alt="Glimpse 8" class="glimpse-img" />
-          <img src="9.webp" alt="Glimpse 9" class="glimpse-img" />
-          <img src="10.webp" alt="Glimpse 10" class="glimpse-img" />
-          <img src="11.jpg" alt="Glimpse 11" class="glimpse-img" />
-          <img src="12.webp" alt="Glimpse 12" class="glimpse-img" />
-          <img src="13.jpg" alt="Glimpse 13" class="glimpse-img" />
-          <img src="14.webp" alt="Glimpse 14" class="glimpse-img" />
-          <img src="15.jpg" alt="Glimpse 15" class="glimpse-img" />
-          <img src="16.webp" alt="Glimpse 16" class="glimpse-img" />
-          <img src="17.webp" alt="Glimpse 17" class="glimpse-img" />
-          <img src="18.jpg" alt="Glimpse 18" class="glimpse-img" />
-          <img src="19.webp" alt="Glimpse 19" class="glimpse-img" />
-          <img src="20.jpg" alt="Glimpse 20" class="glimpse-img" />
-          <img src="21.jpg" alt="Glimpse 21" class="glimpse-img" />
-          <img src="22.webp" alt="Glimpse 22" class="glimpse-img" />
-          <img src="23.webp" alt="Glimpse 23" class="glimpse-img" />
-          <img src="24.jpg" alt="Glimpse 24" class="glimpse-img" />
-          <img src="25.webp" alt="Glimpse 25" class="glimpse-img" />
-          <img src="26.jpg" alt="Glimpse 26" class="glimpse-img" />
-          <img src="27.webp" alt="Glimpse 27" class="glimpse-img" />
-          <img src="28.webp" alt="Glimpse 28" class="glimpse-img" />
-          <img src="29.webp" alt="Glimpse 29" class="glimpse-img" />
-          <img src="30.webp" alt="Glimpse 30" class="glimpse-img" />
-          <img src="31.jpg" alt="Glimpse 31" class="glimpse-img" />
-          <img src="32.webp" alt="Glimpse 32" class="glimpse-img" />
-          <img src="33.webp" alt="Glimpse 33" class="glimpse-img" />
-          <img src="34.webp" alt="Glimpse 34" class="glimpse-img" />
-          <img src="35.jpg" alt="Glimpse 35" class="glimpse-img" />
-          <img src="36.jpg" alt="Glimpse 36" class="glimpse-img" />
-          <img src="37.webp" alt="Glimpse 37" class="glimpse-img" />
-          <img src="38.jpg" alt="Glimpse 38" class="glimpse-img" />
-          <img src="39.webp" alt="Glimpse 39" class="glimpse-img" />
+          <img src="1.webp" alt="Glimpse 1" class="glimpse-img" loading="lazy" />
+          <img src="2.webp" alt="Glimpse 2" class="glimpse-img" loading="lazy" />
+          <img src="3.jpg" alt="Glimpse 3" class="glimpse-img" loading="lazy" />
+          <img src="4.jpg" alt="Glimpse 4" class="glimpse-img" loading="lazy" />
+          <img src="5.jpg" alt="Glimpse 5" class="glimpse-img" loading="lazy" />
+          <img src="6.jpg" alt="Glimpse 6" class="glimpse-img" loading="lazy" />
+          <img src="7.jpg" alt="Glimpse 7" class="glimpse-img" loading="lazy" />
+          <img src="8.jpg" alt="Glimpse 8" class="glimpse-img" loading="lazy" />
+          <img src="9.webp" alt="Glimpse 9" class="glimpse-img" loading="lazy" />
+          <img src="10.webp" alt="Glimpse 10" class="glimpse-img" loading="lazy" />
+          <img src="11.jpg" alt="Glimpse 11" class="glimpse-img" loading="lazy" />
+          <img src="12.webp" alt="Glimpse 12" class="glimpse-img" loading="lazy" />
+          <img src="13.jpg" alt="Glimpse 13" class="glimpse-img" loading="lazy" />
+          <img src="14.webp" alt="Glimpse 14" class="glimpse-img" loading="lazy" />
+          <img src="15.jpg" alt="Glimpse 15" class="glimpse-img" loading="lazy" />
+          <img src="16.webp" alt="Glimpse 16" class="glimpse-img" loading="lazy" />
+          <img src="17.webp" alt="Glimpse 17" class="glimpse-img" loading="lazy" />
+          <img src="18.jpg" alt="Glimpse 18" class="glimpse-img" loading="lazy" />
+          <img src="19.webp" alt="Glimpse 19" class="glimpse-img" loading="lazy" />
+          <img src="20.jpg" alt="Glimpse 20" class="glimpse-img" loading="lazy" />
+          <img src="21.jpg" alt="Glimpse 21" class="glimpse-img" loading="lazy" />
+          <img src="22.webp" alt="Glimpse 22" class="glimpse-img" loading="lazy" />
+          <img src="23.webp" alt="Glimpse 23" class="glimpse-img" loading="lazy" />
+          <img src="24.jpg" alt="Glimpse 24" class="glimpse-img" loading="lazy" />
+          <img src="25.webp" alt="Glimpse 25" class="glimpse-img" loading="lazy" />
+          <img src="26.jpg" alt="Glimpse 26" class="glimpse-img" loading="lazy" />
+          <img src="27.webp" alt="Glimpse 27" class="glimpse-img" loading="lazy" />
+          <img src="28.webp" alt="Glimpse 28" class="glimpse-img" loading="lazy" />
+          <img src="29.webp" alt="Glimpse 29" class="glimpse-img" loading="lazy" />
+          <img src="30.webp" alt="Glimpse 30" class="glimpse-img" loading="lazy" />
+          <img src="31.jpg" alt="Glimpse 31" class="glimpse-img" loading="lazy" />
+          <img src="32.webp" alt="Glimpse 32" class="glimpse-img" loading="lazy" />
+          <img src="33.webp" alt="Glimpse 33" class="glimpse-img" loading="lazy" />
+          <img src="34.webp" alt="Glimpse 34" class="glimpse-img" loading="lazy" />
+          <img src="35.jpg" alt="Glimpse 35" class="glimpse-img" loading="lazy" />
+          <img src="36.jpg" alt="Glimpse 36" class="glimpse-img" loading="lazy" />
+          <img src="37.webp" alt="Glimpse 37" class="glimpse-img" loading="lazy" />
+          <img src="38.jpg" alt="Glimpse 38" class="glimpse-img" loading="lazy" />
+          <img src="39.webp" alt="Glimpse 39" class="glimpse-img" loading="lazy" />
         </div>
       </div>
     </div>
@@ -251,6 +292,7 @@
     <div class="glass-panel modal-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('tracker-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
           <div class="icon-wrap cyan"><i data-lucide="timer"></i></div>
           <h2>Study Tracker</h2>
         </div>
@@ -277,6 +319,7 @@
     <div class="glass-panel modal-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('tasks-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
           <div class="icon-wrap indigo"><i data-lucide="check-circle-2"></i></div>
           <h2>Today's Schedule & Targets</h2>
         </div>
@@ -301,6 +344,7 @@
     <div class="glass-panel modal-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('diary-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
           <div class="icon-wrap violet"><i data-lucide="book-marked"></i></div>
           <h2>Daily Log & Reflections</h2>
         </div>
@@ -328,6 +372,7 @@
     <div class="glass-panel modal-card mtg-modal-card">
       <div class="modal-header">
         <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('mtg-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
           <div class="icon-wrap emerald"><i data-lucide="layers"></i></div>
           <div>
             <h2>MTG Preparation Planner</h2>
