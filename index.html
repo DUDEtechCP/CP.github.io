@@ -56,7 +56,13 @@
           <span>SYSTEM ACTIVE</span>
         </div>
         <h1>CP Command Center</h1>
-        <p id="current-date">Loading date...</p>
+        <div class="date-countdown-group">
+          <p id="current-date">Loading date...</p>
+          <div class="countdown-box">
+            <i data-lucide="clock"></i>
+            <span id="neet-countdown-days">000</span> Days till Target
+          </div>
+        </div>
       </div>
       
       <!-- Command Center Action Buttons -->
@@ -177,9 +183,14 @@
         <button class="sm-option-btn schedule-btn" onclick="switchModal('sm-modal', 'schedule-modal')">
           <i data-lucide="calendar"></i> <span>Test Schedule</span>
         </button>
-        <!-- NEW TEST MARKS BUTTON -->
         <button class="sm-option-btn marks-btn" onclick="switchModal('sm-modal', 'marks-modal')">
           <i data-lucide="bar-chart-2"></i> <span>Test Marks</span>
+        </button>
+        <button class="sm-option-btn task-comp-btn" onclick="switchModal('sm-modal', 'task-comp-modal')">
+          <i data-lucide="check-square"></i> <span>Task Completion</span>
+        </button>
+        <button class="sm-option-btn hrs-count-btn" onclick="switchModal('sm-modal', 'hrs-count-modal')">
+          <i data-lucide="activity"></i> <span>Hrs Count</span>
         </button>
         <button class="sm-option-btn tracker-btn" onclick="switchModal('sm-modal', 'tracker-modal')">
           <i data-lucide="timer"></i> <span>Study Tracker</span>
@@ -187,11 +198,14 @@
         <button class="sm-option-btn tasks-btn" onclick="switchModal('sm-modal', 'tasks-modal')">
           <i data-lucide="check-circle-2"></i> <span>Schedule & Targets</span>
         </button>
+        <button class="sm-option-btn mtg-btn" onclick="switchModal('sm-modal', 'mtg-modal')">
+          <i data-lucide="layers"></i> <span>MTG Planner</span>
+        </button>
         <button class="sm-option-btn diary-btn" onclick="switchModal('sm-modal', 'diary-modal')">
           <i data-lucide="book-marked"></i> <span>Daily Log</span>
         </button>
-        <button class="sm-option-btn mtg-btn" onclick="switchModal('sm-modal', 'mtg-modal')">
-          <i data-lucide="layers"></i> <span>MTG Planner</span>
+        <button class="sm-option-btn needs-btn" onclick="switchModal('sm-modal', 'only-needs-modal')">
+          <i data-lucide="target"></i> <span>Only What's Needed</span>
         </button>
       </div>
     </div>
@@ -209,11 +223,12 @@
         <button class="btn-close-modal" onclick="closeModal('schedule-modal')"><i data-lucide="x"></i></button>
       </div>
       <div class="modal-content-scroll" id="schedule-list-container">
-        <!-- Test schedule cards will be injected here by JS -->
+        <!-- Test schedule cards injected here -->
       </div>
     </div>
   </div>
-<!-- Modal 2.6: Test Marks & Analysis -->
+
+  <!-- Modal 2.6: Test Marks & Analysis -->
   <div id="marks-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'marks-modal')">
     <div class="glass-panel modal-card" style="max-width: 600px;">
       <div class="modal-header">
@@ -231,6 +246,88 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal 2.7: Task Completion (Physics) -->
+  <div id="task-comp-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'task-comp-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('task-comp-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
+          <div class="icon-wrap teal"><i data-lucide="check-square"></i></div>
+          <h2>Physics Task Completion</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('task-comp-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll" id="task-comp-list-container">
+        <!-- Physics list injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2.8: Hrs Count -->
+  <div id="hrs-count-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'hrs-count-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('hrs-count-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
+          <div class="icon-wrap fuchsia"><i data-lucide="activity"></i></div>
+          <h2>Monthly Study Hours</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('hrs-count-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll" id="hrs-count-container">
+        <!-- Accordion months injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2.9: Only Whats Need -->
+  <div id="only-needs-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'only-needs-modal')">
+    <div class="glass-panel modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <button class="btn-back-modal" onclick="switchModal('only-needs-modal', 'sm-modal')"><i data-lucide="arrow-left"></i></button>
+          <div class="icon-wrap sky"><i data-lucide="target"></i></div>
+          <h2>Only What's Needed</h2>
+        </div>
+        <button class="btn-close-modal" onclick="closeModal('only-needs-modal')"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-content-scroll">
+        
+        <div class="needs-card physics">
+          <h3><i data-lucide="zap"></i> Physics</h3>
+          <ol>
+            <li>Notes</li>
+            <li>JEE Main PYQ</li>
+            <li>NEET PYQ</li>
+            <li>Repeat</li>
+            <li>FULL MOCK PAPERS</li>
+          </ol>
+        </div>
+
+        <div class="needs-card chemistry">
+          <h3><i data-lucide="flask-conical"></i> Chemistry</h3>
+          <ol>
+            <li>Notes</li>
+            <li>PYQ</li>
+            <li>Section D for Physical Chemistry</li>
+            <li>NCERT Revision for Organic and Inorganic</li>
+            <LI>FULL MOCK PAPERS</LI>
+          </ol>
+        </div>
+
+        <div class="needs-card biology">
+          <h3><i data-lucide="dna"></i> Biology</h3>
+          <ol>
+            <li>Only NCERT</li>
+            <li>FULL MOCK PAPERS</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Modal 3: Glimpses Gallery -->
   <div id="glimpses-modal" class="modal-backdrop" onclick="handleBackdropClick(event, 'glimpses-modal')">
     <div class="glass-panel modal-card">
