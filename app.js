@@ -6,10 +6,12 @@ const dateOptions = { weekday: 'long', month: 'short', day: 'numeric', year: 'nu
 document.getElementById('current-date').innerText = new Date().toLocaleDateString(undefined, dateOptions);
 
 /* ==========================================================
-   1. TARGET COUNTDOWN (02/05/2027)
+   1. TARGET COUNTDOWN (02/05/2027) - SAFARI BUG FIXED
 ========================================================== */
 function updateCountdown() {
-  const targetDate = new Date("2027-05-02T00:00:00").getTime();
+  // Using comma-separated values ensures 100% compatibility across all browsers (including iPhones)
+  // Format: new Date(year, monthIndex, day) -> May is month 4
+  const targetDate = new Date(2027, 4, 2).getTime(); 
   const now = new Date().getTime();
   const diff = targetDate - now;
   const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
